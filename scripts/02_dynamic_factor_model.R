@@ -31,9 +31,10 @@ DFAmodelv2 <- ctModel(n.latent = 1, n.manifest = 3,
                       MANIFESTMEANS = matrix(c('manifestmean1', 'manifestmean2', 'manifestmean3'), nrow = 3, ncol = 1),
                       T0VAR = diag(1),
                       T0MEANS = matrix(0,1,1),
-                      type = "stanct")
+                      CINT = matrix(0,1,1),
+                      type = "ct")
 
-DFAmodelv2fit <- ctStanFit(datalong=ctExample3long, ctstanmodel=DFAmodelv2, indvarying=F, optimize = TRUE, nopriors = TRUE)
+DFAmodelv2fit <- ctStanFit(datalong=ctExample3long, ctstanmodel=DFAmodelv2, indvarying=FALSE, optimize = TRUE, priors = FALSE)
 summary(DFAmodelv2fit)
 plot(DFAmodelv2fit)
 
