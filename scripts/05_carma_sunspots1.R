@@ -9,7 +9,7 @@ id <- 1
 time <- 1749:1924
 datalong <- cbind(id, time, sunspots)
 #setup model
-ssmodel <- ctModel(type='stanct', n.latent=2, n.manifest=1,
+ssmodel <- ctModel(type='ct', n.latent=2, n.manifest=1,
                    manifestNames='sunspots',
                    latentNames=c('ss_level', 'ss_velocity'),
                    LAMBDA=matrix(c( 1, 'ma1' ), nrow=1, ncol=2),
